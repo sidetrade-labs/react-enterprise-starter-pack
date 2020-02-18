@@ -2,7 +2,11 @@
 
 This repository is all you need to get started on a full-featured React app with Typescript. If you have a need for a solid Front-end stack to use on an entreprise level, this is a good place to start 👍.
 
-Read about how we created this stack and why we picked these libraries here: https://medium.com/@sidetrade_labs/modern-2020-react-stack-or-how-we-switched-away-from-angular-a9efb65d51e5
+Read about how we created this stack and why we picked these libraries here: 
+
+https://medium.com/@sidetrade_labs/modern-2020-react-stack-or-how-we-switched-away-from-angular-a9efb65d51e5
+
+
 
 ### It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses:
 
