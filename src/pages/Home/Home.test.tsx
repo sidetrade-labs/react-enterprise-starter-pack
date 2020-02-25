@@ -3,12 +3,12 @@ import { render } from "@testing-library/react"
 import Home from "."
 import { Provider } from "react-redux"
 import configureStore from "redux-mock-store"
-import { AppStore } from "../../reducers/rootReducer"
+import { AppState } from "../../reducers/rootReducer"
 
 describe("Home component", () => {
   test("renders hello world", () => {
     // mocking store for component
-    const initialState: AppStore = { tasksReducer: { tasks: [] } }
+    const initialState: Partial<AppState> = { tasks: { tasks: [] } }
     const mockStore = configureStore()
     const store = mockStore(initialState)
 

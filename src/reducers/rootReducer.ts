@@ -1,21 +1,16 @@
-import { combineReducers } from "redux"
-import localeReducer, { LocaleReducerState } from "./localeReducer"
-import tasksReducer, { TasksReducerState } from "./tasksReducer"
+import localeSlice from "./localeSlice"
+import tasksSlice from "./tasksSlice"
+import { combineReducers, PayloadAction } from "@reduxjs/toolkit"
 
-export interface ReducerDispatch {
-  type: string
-  payload?: any
+export type PayloadActionWithResolve<T> = {
   onResolve?: (data?: any) => void
-}
-
-export interface AppStore {
-  tasksReducer?: TasksReducerState
-  localeReducer?: LocaleReducerState
-}
+} & PayloadAction<T>
 
 const rootReducer = combineReducers({
-  tasksReducer,
-  localeReducer,
+  tasks: tasksSlice.reducer,
+  locale: localeSlice.reducer,
 })
+
+export type AppState = ReturnType<typeof rootReducer>
 
 export default rootReducer
