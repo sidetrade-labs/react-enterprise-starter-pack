@@ -1,10 +1,11 @@
 import React from "react"
 import { Trans, Plural } from "@lingui/macro"
 import { useSelector, useDispatch } from "react-redux"
-import { TasksReducerState } from "../../reducers/tasksReducer"
-import { TASKS_FETCH_REQUESTED } from "../../actions/tasks"
+import { TasksState, fetchTasks } from "../../reducers/tasksSlice"
 import { Button, Skeleton, Spin } from "antd"
 import styled from "styled-components"
+import { AppDispatch } from "../../store"
+import { AppState } from "../../reducers/rootReducer"
 
 // Overriding ant ui button style
 const StyledButton = styled(Button)`
@@ -12,15 +13,13 @@ const StyledButton = styled(Button)`
 `
 
 const Home: React.FC = () => {
-  const { tasks } = useSelector<any, TasksReducerState>(
-    state => state.tasksReducer,
-  )
+  const { tasks } = useSelector<AppState, TasksState>(state => state.tasks)
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
 
   if (!tasks) {
     // Requesting an HTTP call just for the sake of the demo
-    dispatch({ type: TASKS_FETCH_REQUESTED })
+    dispatch(fetchTasks())
     return (
       <div className="text-center max-w-md m-auto pt-12">
         <Spin tip="Loading..."></Spin>

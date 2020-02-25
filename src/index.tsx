@@ -5,26 +5,16 @@ import * as serviceWorker from "./serviceWorker"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { Provider, useSelector } from "react-redux"
 import { I18nProvider } from "@lingui/react"
-import { createStore, applyMiddleware } from "redux"
-import createSagaMiddleware from "redux-saga"
-import rootReducer from "./reducers/rootReducer"
-import rootSaga from "./sagas/rootSaga"
-import { LocaleReducerState } from "./reducers/localeReducer"
+import { LocaleState } from "./reducers/localeSlice"
 import { Spin } from "antd"
+import store from "./store"
+import { AppState } from "./reducers/rootReducer"
 
 // Lazy loading main pages
 const Home = lazy(() => import("./pages/Home/index"))
 
-const sagaMiddleware = createSagaMiddleware()
-
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware))
-
-sagaMiddleware.run(rootSaga)
-
 const I18nWrapper: React.FC = () => {
-  const { locale } = useSelector<any, LocaleReducerState>(
-    store => store.localeReducer,
-  )
+  const { locale } = useSelector<AppState, LocaleState>(store => store.locale)
   const catalogs = {
     [locale]: require(`./locales/${locale}/messages.js`).default,
   }
