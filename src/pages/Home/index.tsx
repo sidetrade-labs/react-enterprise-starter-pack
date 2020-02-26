@@ -1,7 +1,7 @@
 import React from "react"
 import { Trans, Plural } from "@lingui/macro"
 import { useSelector, useDispatch } from "react-redux"
-import { TasksState, fetchTasks } from "../../reducers/tasksSlice"
+import { fetchTasks } from "../../reducers/tasksSlice"
 import { Button, Skeleton, Spin } from "antd"
 import styled from "styled-components"
 import { AppDispatch } from "../../store"
@@ -13,7 +13,7 @@ const StyledButton = styled(Button)`
 `
 
 const Home: React.FC = () => {
-  const { tasks } = useSelector<AppState, TasksState>(state => state.tasks)
+  const tasks = useSelector((state: AppState) => state.tasks.tasks)
 
   const dispatch = useDispatch<AppDispatch>()
 

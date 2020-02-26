@@ -5,7 +5,6 @@ import * as serviceWorker from "./serviceWorker"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { Provider, useSelector } from "react-redux"
 import { I18nProvider } from "@lingui/react"
-import { LocaleState } from "./reducers/localeSlice"
 import { Spin } from "antd"
 import store from "./store"
 import { AppState } from "./reducers/rootReducer"
@@ -14,7 +13,7 @@ import { AppState } from "./reducers/rootReducer"
 const Home = lazy(() => import("./pages/Home/index"))
 
 const I18nWrapper: React.FC = () => {
-  const { locale } = useSelector<AppState, LocaleState>(store => store.locale)
+  const locale = useSelector((state: AppState) => state.locale)
   const catalogs = {
     [locale]: require(`./locales/${locale}/messages.js`).default,
   }
