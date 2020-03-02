@@ -16,7 +16,7 @@
   },
 
   // Specifies a command that should be run after the container has been created.
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "npm install && npm install cypress",
 
   // Add the IDs of extensions you want installed when the container is created in the array below.
   "extensions": [
