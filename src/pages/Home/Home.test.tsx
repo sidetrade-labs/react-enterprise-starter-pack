@@ -1,22 +1,22 @@
 import React from "react"
 import { render } from "@testing-library/react"
 import Home from "."
-import { Provider } from "react-redux"
-import configureStore from "redux-mock-store"
-import { AppState } from "../../reducers/rootReducer"
+import RootStore, { stores } from "../../stores/RootStore"
 
 describe("Home component", () => {
   test("renders hello world", () => {
     // mocking store for component
-    const initialState: Partial<AppState> = { tasks: { tasks: [] } }
-    const mockStore = configureStore()
-    const store = mockStore(initialState)
+    const initialState: any = {
+      ...stores,
+      tasksStore: { tasks: [], total: 0, fetchTasks: () => [] },
+    }
 
     const { getByText } = render(
-      <Provider store={store}>
+      <RootStore.Provider value={initialState}>
         <Home />
-      </Provider>,
+      </RootStore.Provider>,
     )
+
     const linkElement = getByText(/hello world/i)
     expect(linkElement).toBeInTheDocument()
   })
