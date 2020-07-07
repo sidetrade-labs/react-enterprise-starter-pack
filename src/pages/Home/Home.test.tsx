@@ -6,7 +6,7 @@ import RootStore, { stores } from "../../stores/RootStore"
 describe("Home component", () => {
   test("renders hello world", () => {
     // mocking store for component
-    const initialState = {
+    const initialState: any = {
       ...stores,
       tasksStore: { tasks: [], total: 0, fetchTasks: () => [] },
     }
