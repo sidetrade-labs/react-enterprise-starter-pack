@@ -1,11 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Trans, Plural } from "@lingui/macro"
-import { useSelector, useDispatch } from "react-redux"
-import { fetchTasks } from "../../reducers/tasksSlice"
 import { Button, Skeleton, Spin } from "antd"
 import styled from "styled-components"
-import { AppDispatch } from "../../store"
-import { AppState } from "../../reducers/rootReducer"
+import { observer } from "mobx-react"
+import RootStore from "../../stores/RootStore"
 
 // Overriding ant ui button style
 const StyledButton = styled(Button)`
@@ -13,13 +11,10 @@ const StyledButton = styled(Button)`
 `
 
 const Home: React.FC = () => {
-  const tasks = useSelector((state: AppState) => state.tasks.tasks)
+  const { tasksStore } = useContext(RootStore)
 
-  const dispatch = useDispatch<AppDispatch>()
-
-  if (!tasks) {
-    // Requesting an HTTP call just for the sake of the demo
-    dispatch(fetchTasks())
+  if (!tasksStore.tasks) {
+    tasksStore.fetchTasks()
     return (
       <div className="text-center max-w-md m-auto pt-12">
         <Spin tip="Loading..."></Spin>
@@ -35,7 +30,7 @@ const Home: React.FC = () => {
       <Trans>Hello world</Trans>
       <br />
       <Plural
-        value={tasks.length}
+        value={tasksStore.total}
         _0="You don't have any task to do"
         one="You successfully fetched # task"
         other="You successfully fetched # tasks"
@@ -49,4 +44,4 @@ const Home: React.FC = () => {
   )
 }
 
-export default Home
+export default observer(Home)

@@ -1,25 +1,25 @@
-import React, { Suspense, lazy } from "react"
+import React, { Suspense, lazy, useContext } from "react"
 import ReactDOM from "react-dom"
 import "./tailwind-generated.css"
 import * as serviceWorker from "./serviceWorker"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import { Provider, useSelector } from "react-redux"
 import { I18nProvider } from "@lingui/react"
 import { Spin } from "antd"
-import store from "./store"
-import { AppState } from "./reducers/rootReducer"
+import RootStore, { stores } from "./stores/RootStore"
+import "mobx-react/batchingForReactDom"
 
 // Lazy loading main pages
 const Home = lazy(() => import("./pages/Home/index"))
 
 const I18nWrapper: React.FC = () => {
-  const locale = useSelector((state: AppState) => state.locale)
+  const { localeStore } = useContext(RootStore)
   const catalogs = {
-    [locale]: require(`./locales/${locale}/messages.js`).default,
+    [localeStore.locale]: require(`./locales/${localeStore.locale}/messages.js`)
+      .default,
   }
 
   return (
-    <I18nProvider language={locale} catalogs={catalogs}>
+    <I18nProvider language={localeStore.locale} catalogs={catalogs}>
       <App />
     </I18nProvider>
   )
@@ -44,9 +44,9 @@ const App: React.FC = () => {
 }
 
 ReactDOM.render(
-  <Provider store={store}>
+  <RootStore.Provider value={stores}>
     <I18nWrapper />
-  </Provider>,
+  </RootStore.Provider>,
   document.getElementById("root"),
 )
 

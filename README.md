@@ -1,4 +1,4 @@
-# Complete React - Redux - Typescript stack
+# Complete React - MobX - Typescript stack
 
 This repository is all you need to get started on a full-featured React app with Typescript. If you have a need for a solid Front-end stack to use on an entreprise level, this is a good place to start 👍.
 
@@ -12,7 +12,7 @@ https://medium.com/@sidetrade_labs/modern-2020-react-stack-or-how-we-switched-aw
 
 [Typescript](https://github.com/microsoft/TypeScript) because it's 2020  
 [React Router](https://github.com/ReactTraining/react-router) to handle client side routing  
-[Redux](https://github.com/reduxjs/react-redux) to handle State Management, with [Redux-saga](https://github.com/redux-saga/redux-saga) for async actions  
+[MobX](https://github.com/mobxjs/mobx) to handle State Management, with [mobx-react](https://github.com/mobxjs/mobx-react) for React integration  
 [Ant Design](https://github.com/ant-design/ant-design) for its very complete set of components  
 [Styled Components](https://github.com/styled-components/styled-components) to extend Ant's default component styling  
 [TailwindCSS](https://github.com/tailwindcss/tailwindcss) to elegantly handle the rest of your app's UI  
