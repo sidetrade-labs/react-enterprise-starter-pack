@@ -1,3 +1,15 @@
+<table><tr><td><a href="https://www.sidetrade.com/company/careers"><img src="https://pbs.twimg.com/profile_images/1228298719935782912/KqQjfWne.jpg" width="200px" /></a></td><td>
+  <p style="color:#153c6b">
+    Check out this article by Sidetrade lead application engineer Luke Hennerley, writing about
+    the culture that Sidetrade group CTO Mark Sheldon has built inside our R&D department! 🦸🏻 If
+    you like what you see, we have quite a few openings now, and more in the future 🚀
+  </p>
+  <p>
+    https://medium.com/@sidetrade_labs/building-a-superhero-culture-inside-engineering-4e88438ee93b
+  </p>
+  <p>We’re hiring - join the squad! <a href="https://www.sidetrade.com/company/careers">sidetrade.com/company/careers</a> 👀</p>
+</td></tr></table>
+
 # Complete React - MobX - Typescript stack
 
 This repository is all you need to get started on a full-featured React app with Typescript. If you have a need for a solid Front-end stack to use on an entreprise level, this is a good place to start 👍.
