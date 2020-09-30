@@ -1,14 +1,25 @@
-<table><tr><td><a href="https://www.sidetrade.com/company/careers"><img src="https://pbs.twimg.com/profile_images/1228298719935782912/KqQjfWne.jpg" width="200px" /></a></td><td>
-  <p style="color:#153c6b">
-    Check out this article by Sidetrade lead application engineer Luke Hennerley, writing about
-    the culture that Sidetrade group CTO Mark Sheldon has built inside our R&D department! 🦸🏻 If
-    you like what you see, we have quite a few openings now, and more in the future 🚀
-  </p>
-  <p>
-    https://medium.com/@sidetrade_labs/building-a-superhero-culture-inside-engineering-4e88438ee93b
-  </p>
-  <p>We’re hiring - join the squad! <a href="https://www.sidetrade.com/company/careers">sidetrade.com/company/careers</a> 👀</p>
-</td></tr></table>
+<table>
+  <tr>
+    <td><a href="https://www.sidetrade.com/company/careers" target="_blank"><img src="https://pbs.twimg.com/profile_images/1228298719935782912/KqQjfWne.jpg" width="280px" /></a></td>
+    <td>
+      <p style="color:#153c6b">
+        Check out this article by Sidetrade lead application engineer Luke Hennerley, writing about
+        the culture that Sidetrade group CTO Mark Sheldon has built inside our R&D department! 🦸🏻 If
+        you like what you see, we have quite a few openings now, and more in the future 🚀
+      </p>
+      <p>
+        https://medium.com/@sidetrade_labs/building-a-superhero-culture-inside-engineering-4e88438ee93b
+      </p>
+      <p>We’re hiring - join the squad! <a href="https://www.sidetrade.com/company/careers">sidetrade.com/company/careers</a> 👀</p>
+    </td>
+    <td>
+      <a href="https://youtu.be/B9lJ2JhwSiI" target="_blank">
+        <img src="https://user-images.githubusercontent.com/14852491/94675957-7a3c5100-0312-11eb-91f0-6818337e27f7.jpg" alt="From Engineer to Superhero: the R&D Culture at Sidetrade" />
+        <p><strong>🎬 Video:</strong> From Engineer to Superhero: the R&D Culture at Sidetrade</p>
+      </a>
+    </td>
+  </tr>
+</table>
 
 # Complete React - MobX - Typescript stack
 
