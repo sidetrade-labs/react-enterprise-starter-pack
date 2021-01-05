@@ -6,7 +6,7 @@
     "@lingui/macro": "^2.9.1",
     "@lingui/react": "^2.9.1",
     "antd": "^4.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
     "react": "^16.12.0",
