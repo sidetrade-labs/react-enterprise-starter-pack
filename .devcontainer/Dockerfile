@@ -3,7 +3,16 @@
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 
-FROM node:10
+FROM node:latest
+
+# a few environment variables to make NPM installs easier
+# good colors for most applications
+ENV TERM xterm
+# avoid million NPM install messages
+ENV npm_config_loglevel warn
+# allow installing when the main user is root
+ENV npm_config_unsafe_perm true
+
 
 # The node image includes a non-root user with sudo access. Use the "remoteUser"
 # property in devcontainer.json to use it. On Linux, the container user's GID/UIDs
@@ -22,6 +31,28 @@ RUN apt-get update \
     #
     # Verify git and needed tools are installed
     && apt-get -y install git iproute2 procps \
+    && apt-get -y install \
+    libgtk2.0-0 \
+  libgtk-3-0 \
+  libnotify-dev \
+  libgconf-2-4 \
+  libnss3 \
+  libxss1 \
+  libasound2 \
+  libxtst6 \
+  xauth \
+  xvfb \
+  # install Chinese fonts
+  # this list was copied from https://github.com/jim3ma/docker-leanote
+  fonts-arphic-bkai00mp \
+  fonts-arphic-bsmi00lp \
+  fonts-arphic-gbsn00lp \
+  fonts-arphic-gkai00mp \
+  fonts-arphic-ukai \
+  fonts-arphic-uming \
+  ttf-wqy-zenhei \
+  ttf-wqy-microhei \
+  xfonts-wqy \
     #
     # Remove outdated yarn from /opt and install via package 
     # so it can be easily updated via apt-get upgrade yarn
@@ -33,6 +64,7 @@ RUN apt-get update \
     && echo "deb https://dl.yarnpkg.com/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
     && apt-get update \
     && apt-get -y install --no-install-recommends yarn \
+    
     #
     # Install eslint globally
     && npm install -g eslint \
@@ -52,6 +84,7 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
+
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog

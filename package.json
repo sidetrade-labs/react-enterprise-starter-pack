@@ -77,7 +77,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-plugin-import": "^1.13.0",
     "customize-cra": "^0.9.1",
-    "cypress": "^4.0.1",
+    "cypress": "^4.1.0",
     "husky": "^4.2.1",
     "less": "^3.11.0",
     "less-loader": "^5.0.0",
